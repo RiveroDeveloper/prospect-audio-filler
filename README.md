@@ -1,59 +1,59 @@
-# Bitácora CRM - MVP de Registro por Voz
+# CRM Log - Voice Recording MVP
 
-**Acceso en línea:** [http://mvpsinfo.free.nf/?i=1](http://mvpsinfo.free.nf/?i=1)
+**Online Access:** [http://mvpsinfo.free.nf/?i=1](http://mvpsinfo.free.nf/?i=1)
 
-## Descripción
-Este proyecto es un MVP de una bitácora para CRM que permite registrar información de prospectos y actividades usando reconocimiento de voz en el navegador. El usuario puede dictar los datos de cada campo o usar un botón para dictar toda la secuencia de campos relevantes.
+## Description
+This project is an MVP of a CRM log that allows recording prospect and activity information using voice recognition in the browser. Users can dictate data for each field or use a button to dictate the entire sequence of relevant fields.
 
-## Características principales
-- Formulario de bitácora con campos: Estado, Temperatura, Nombre, Valor, Descripción, Adjunto, Oportunidad, Tarea, Próxima acción, Hora y Contacto.
-- Botón de micrófono en cada campo para dictar solo ese campo.
-- Botón principal "Dictar todo" para dictar todos los campos importantes en secuencia.
-- Indicaciones visuales claras en la parte superior de la pantalla durante el dictado.
-- No requiere backend ni base de datos.
-- Solo usa PHP para servir el archivo (no frameworks).
-- Compatible con Google Chrome y Microsoft Edge.
+## Main Features
+- Log form with fields: Status, Temperature, Name, Value, Description, Attachment, Opportunity, Task, Next Action, Time, and Contact.
+- Microphone button on each field to dictate only that field.
+- Main "Dictate All" button to dictate all important fields in sequence.
+- Clear visual indicators at the top of the screen during dictation.
+- No backend or database required.
+- Only uses PHP to serve the file (no frameworks).
+- Compatible with Google Chrome and Microsoft Edge.
 
-## Requisitos
-- Google Chrome o Microsoft Edge (la Web Speech API no funciona en Firefox).
-- Conexión a internet (la API de voz usa servicios de Google).
-- Permitir el acceso al micrófono cuando el navegador lo solicite.
-- Servir el proyecto desde `localhost` o HTTPS (no abrir el archivo directamente con `file:///`).
-- Tener PHP instalado (para el servidor local).
+## Requirements
+- Google Chrome or Microsoft Edge (Web Speech API doesn't work in Firefox).
+- Internet connection (voice API uses Google services).
+- Allow microphone access when the browser requests it.
+- Serve the project from `localhost` or HTTPS (don't open the file directly with `file:///`).
+- Have PHP installed (for local server).
 
-## Cómo ejecutar el proyecto
-1. Descarga o clona este repositorio en tu computadora.
-2. Abre una terminal en la carpeta del proyecto.
-3. Ejecuta el siguiente comando para iniciar el servidor local de PHP:
+## How to Run the Project
+1. Download or clone this repository to your computer.
+2. Open a terminal in the project folder.
+3. Run the following command to start the PHP local server:
    ```sh
    php -S localhost:8000
    ```
-4. Abre tu navegador (Chrome o Edge) y visita:
+4. Open your browser (Chrome or Edge) and visit:
    [http://localhost:8000/index.php](http://localhost:8000/index.php)
-5. Permite el acceso al micrófono cuando el navegador lo solicite.
-6. Usa los botones de micrófono para dictar cada campo o el botón "Dictar todo" para dictar la secuencia completa.
+5. Allow microphone access when the browser requests it.
+6. Use the microphone buttons to dictate each field or the "Dictate All" button to dictate the complete sequence.
 
-## Estructura del código
-- `index.php`: Contiene el formulario, el diseño y la estructura principal de la interfaz.
-- `js/voiceRecognition.js`: Lógica de reconocimiento de voz, manejo de botones, secuencia de dictado y mensajes de estado.
-- `README.md`: Este archivo de ayuda.
+## Code Structure
+- `index.php`: Contains the form, design, and main interface structure.
+- `js/voiceRecognition.js`: Voice recognition logic, button handling, dictation sequence, and status messages.
+- `README.md`: This help file.
 
-## Notas y recomendaciones
-- Si ves un error de red (network), asegúrate de estar usando `localhost` y no `file:///`.
-- Si el reconocimiento de voz no funciona, revisa los permisos del micrófono (icono de candado en la barra de direcciones).
-- Si tienes extensiones de privacidad, VPN o firewall, podrían bloquear la API de voz.
-- El MVP no guarda datos en ningún lado, solo muestra una alerta de éxito.
+## Notes and Recommendations
+- If you see a network error, make sure you're using `localhost` and not `file:///`.
+- If voice recognition doesn't work, check microphone permissions (lock icon in the address bar).
+- If you have privacy extensions, VPN, or firewall, they might block the voice API.
+- The MVP doesn't save data anywhere, it only shows a success alert.
 
-## Conexión a la base de datos
+## Database Connection
 
-En desarrollo local, la conexión a la base de datos se realiza usando XAMPP. Para ello, asegúrate de tener el servidor MySQL de XAMPP corriendo y utiliza la siguiente configuración en tu archivo `config/database.php`:
+In local development, the database connection is made using XAMPP. For this, make sure you have the XAMPP MySQL server running and use the following configuration in your `config/database.php` file:
 
 ```php
-// Ejemplo de conexión local con XAMPP
+// Example of local connection with XAMPP
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root');
-define('DB_PASSWORD', ''); // Por defecto, sin contraseña en XAMPP
-define('DB_DATABASE', 'nombre_de_tu_base_de_datos');
+define('DB_PASSWORD', ''); // By default, no password in XAMPP
+define('DB_DATABASE', 'your_database_name');
 
 $conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 if ($conn->connect_error) {
@@ -61,10 +61,10 @@ if ($conn->connect_error) {
 }
 ```
 
-En producción (por ejemplo, en InfinityFree), debes cambiar estos valores por los proporcionados por tu hosting, como se muestra a continuación:
+In production (for example, on InfinityFree), you must change these values to those provided by your hosting, as shown below:
 
 ```php
-// Ejemplo de conexión en InfinityFree
+// Example of connection on InfinityFree
 define('DB_SERVER', 'sql209.infinityfree.com');
 define('DB_USERNAME', 'if0_39036584');
 define('DB_PASSWORD', '4ydxIY4zUYjV');
@@ -76,7 +76,7 @@ if ($conn->connect_error) {
 }
 ```
 
-Asegúrate de subir el archivo `config/database.php` con la configuración adecuada según el entorno donde vayas a desplegar el proyecto.
+Make sure to upload the `config/database.php` file with the appropriate configuration according to the environment where you're going to deploy the project.
 
-## Créditos
-Desarrollado como MVP para pruebas de funcionalidad de registro por voz en CRM.
+## Credits
+Developed as MVP for testing voice recording functionality in CRM.
